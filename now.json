@@ -1,10 +1,20 @@
 {
     "version": 2,
     "functions": {
-        "api/*.js": {
+        "api/**/*.js": {
           "memory": 3008,
           "maxDuration": 60,
           "includeFiles":"api/_data/*.json"
         }
-    }
+    },
+  "env": {
+    "MONGO_URL": "@staging.glider-ota.mongo.uri2",
+    "MONGO_DBNAME": "@staging.glider-ota.mongo.dbname",
+    "REDIS_HOST": "@staging.glider-ota.redis.host",
+    "REDIS_PASSWORD": "@staging.glider-ota.redis.password",
+    "STRIPE_PUBLISHABLE_KEY":"@staging.glider-ota.stripe.publishable_key",
+    "STRIPE_SECRET_KEY":"@staging.glider-ota.stripe.secret_key",
+    "STRIPE_WEBHOOK_SECRET":"@staging.glider-ota.stripe.webhook_secret",
+    "ELASTIC_URL":"@staging.glider-ota.elastic.url"
+  }
 }

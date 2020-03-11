@@ -26,3 +26,13 @@ yarn-error.log*
 package-lock.json
 
 .now
+/.env
+/.secrets
+/.idea/
+**.env
+
+.now
+/glider-ota-fresh.iml
+/storybook-static
+
+.vercel

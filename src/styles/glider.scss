@@ -1,0 +1,77 @@
+/**
+glider.scss
+global stylesheets
+ */
+//@import './variables';
+@import './mixins';
+@import './typography';
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import './icons-amenities.css';
+@import './icons-symbols.css';
+/*
+.border{
+
+  border: 1px solid green;
+  !*
+
+  @media (min-width: 400px) {
+   border: 4px solid green;
+  }
+  @media (min-width: 600px) {
+    border: 6px solid pink;
+  }
+  @media (min-width: 800px) {
+    border: 8px solid blue;
+  }
+  *!
+
+}*/
+
+
+.content-wrapper{
+  min-height: 600px;
+}
+
+body{
+  background: $glider-color-body-background;
+  font-family: 'Poppins', sans-serif;
+  //font-size: 16px;
+}
+
+//spinner
+.css-0{
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+
+.no-padding-left{
+  padding-left: 0px;
+}
+
+.root-container-mainpage{
+  width:100%;
+  @include glider-media-large_992{
+   max-width: 80%;
+  }
+  @include glider-media-xlarge_1600{
+    max-width: 1770px;
+  }
+  //border: 1px solid black;
+}
+
+.root-container-subpages{
+  width:100%;
+  margin-right: auto;
+  margin-left: auto;
+  @include glider-media-large_992{
+    max-width: 80%;
+    //min-width: 80%;
+  }
+  @include glider-media-xlarge_1600{
+    max-width: 1770px;
+
+  }
+  //border: 1px solid black;
+}

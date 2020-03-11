@@ -8,28 +8,51 @@ import {
 
 import ReactDOM from 'react-dom'
 // import 'bootstrap/dist/css/bootstrap.min.css'
-import './index.scss'
+import './styles/glider.scss'
+// import './styles/icons.css'
+import FlightTripOverviewPage from "./pages/flight-trip-overview-page"
+import Hotel from "./pages/hotel"
+import FlightsSearchPage from "./pages/flights-search-page"
 import HotelsPage from "./pages/hotels"
-import FlightsPage from "./pages/flights"
-import HomePage from "./pages/home"
+import HomePage from "./pages/home-page"
+import { CookiesProvider } from 'react-cookie';
+import ConfirmationPage from "./pages/confirmation-page";
+import FlightSeatmapPage from "./pages/flight-seatmap-page";
+import FlightFareFamiliesPage from "./pages/flight-farefamilies-page";
+import FlightPassengersPage from "./pages/flight-passengers-page";
+import FlightSummaryPage from "./pages/flight-summary-page";
+import PaymentPage from "./pages/payment-page";
 
 
 function Dispatcher() {
     return (
-        <Router>
-            {/*<span> <Link to="/">Home</Link> <Link to="/flights">Flights</Link> <Link to="/flightoffer">Offer</Link> <Link to="/hotels">Hotels</Link></span>*/}
+        <CookiesProvider>
+            <Router>
                 <Switch>
-{/*                    <Route path="/hotels">
-                        <HotelsPage/>
-                    </Route>
-                    <Route path="/flights">
-                        <FlightsPage/>
-                    </Route>*/}
-                    <Route path="/">
-                        <HomePage />
-                    </Route>
+                    {/*Flights flow*/}
+                    <Route path="/flights/tripoverview/:offerId" component={FlightTripOverviewPage}/>
+                    <Route path="/flights/farefamilies/:offerId" component={FlightFareFamiliesPage}/>
+                    <Route path="/flights/seatmap/:offerId/:segmentId?" component={FlightSeatmapPage}/>
+                    <Route path="/flights/passengers/:offerId" component={FlightPassengersPage}/>
+                    <Route path="/flights/summary/:offerId" component={FlightSummaryPage}/>
+                    <Route path="/flights/" component={FlightsSearchPage}/>
+
+                    <Route path="/payment/:confirmedOfferId" component={PaymentPage}/>
+                    <Route path="/confirmation/:confirmedOfferId" component={ConfirmationPage}/>
+
+                    {/*<Route path="/summary/:offerId" component={FlightOffer}/>*/}
+                    {/*<Route path="/confirmation/" component={FlightOffer}/>*/}
+
+                    {/*Hotels flow*/}
+                    <Route path="/hotels/" component={HotelsPage}/>
+                    <Route path="/hotel/:accommodationId?" component={Hotel}/>
+                    <Route path="/confirmation/:orderId" component={ConfirmationPage}/>
+
+
+                    <Route path="/" component={HomePage} />
                 </Switch>
-        </Router>
+            </Router>
+        </CookiesProvider>
     );
 }
 
